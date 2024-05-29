@@ -36,12 +36,21 @@
     color: rgb(0 0 0);
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.25rem;
-    float: right;
+    text-align: right;
   } 
   
+  .page-content-answer {
+    color: rgb(0 0 0);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+  } 
+
   .textbox {
     border-color: black;
-    padding-block: white;
+    background-color: white;
+    width: 500px;
+    height: 300px;
+    border-style: solid;
   }
 
   body {

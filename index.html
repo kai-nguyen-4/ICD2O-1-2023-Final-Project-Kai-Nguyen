@@ -20,6 +20,15 @@
   <body onload="updateScore()">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="./js/script.js"></script>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Local Memory cookie clicker, with Js</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
     <div class="textbox">
     <p>Try to guess the number!</p>
       <div>
@@ -37,7 +46,6 @@
     <div class="page-content-answer">
       <div id="hint"></div>
     </div>
-  </div>
     <div class="page-content-current-score">
       <div id="currentScore"></div>
     </div>
@@ -47,5 +55,6 @@
     <div class="page-content-answer">
       <div id="answer"></div>
     </div>
+  </div>
   </body>
 </html>

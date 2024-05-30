@@ -8,25 +8,31 @@
 /**
  * Check service worker.
  */
-if (navigator.serviceWorker) {
+/*if (navigator.serviceWorker) {
   navigator.serviceWorker.register("/ICS2O-Unit-6-04-kai-nguyen-4/sw.js", {
     scope: "/ICS2O-Unit-6-04-kai-nguyen-4/",
   })
-}
+}*/
 
 let score = 0
 let highScore = 0
 let hiddenNumber = Math.floor(Math.random() * 100) + 1
-let tries = 5
+let tries = 7
 
 function updateScore() {
   // save to local storage
+  console.log(highScore)
   if (localStorage.highScore) {
-    Number(localStorage.highScore) = highScore
+    highScore = Number(localStorage.highScore)
   } else {
     localStorage.highScore = highScore
   }
   document.getElementById("highScore").innerHTML = "High Score: " + highScore
+}
+
+window.onload = function() {
+  document.getElementById("highScore").innerHTML = "High Score: " + highScore
+  document.getElementById("currentScore").innerHTML = "Score: " + score
 }
 
 function buttonClicked() {
@@ -37,9 +43,12 @@ function buttonClicked() {
     if (userNumber == hiddenNumber) {
       score++
       document.getElementById("answer").innerHTML += "Question " + score + " correct!<br />"
-      tries = 5
+      tries = 7
       if (score > highScore) {
-        highScore == score
+        highScore = score
+        localStorage.highScore = highScore
+        console.log(score)
+        console.log(highScore)
       }
       hiddenNumber = Math.floor(Math.random() * 100) + 1
     } else if (userNumber > hiddenNumber) {
@@ -53,5 +62,7 @@ function buttonClicked() {
       document.getElementById("answer").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score
     }
     document.getElementById("tries").innerHTML = "Tries remaining: " + tries
+  } else {
+    document.getElementById("answer").innerHTML = "Error! Please enter a valid number from 1-100"
   }
 }

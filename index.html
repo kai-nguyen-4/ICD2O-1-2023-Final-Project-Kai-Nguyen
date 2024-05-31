@@ -24,36 +24,37 @@
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title">Local Memory cookie clicker, with Js</span>
+          <span class="mdl-layout-title">Guess the number from 1 - 100, with Js</span>
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
         </div>
       </header>
     <div class="textbox">
-    <p>Try to guess the number!</p>
+      <div class="page-content-current-score">
+        <div id="currentScore"></div>
+      </div>
+      <div class="page-content-high-score">
+        <div id="highScore"></div>
+      </div>
+      <div class="page-content-answer">
+        <div id="tries"></div>
+      </div>
+    <p style="padding-left: 25px;">Try to guess the number!</p>
       <div>
-      <input type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="number-entered" />
-      <label for="num1-entered"> 1 => 100</label>
+      <input type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="number-entered" style="margin-left: 2%;"/>
+      <label for="num1-entered" > 1 => 100</label>
       <span class="mdl-textfield__error">Input is not a number!</span>
       </div>
       <br />
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="buttonClicked()">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin-left: 2%;" onclick="buttonClicked()">
         Enter
       </button>
     <div class="page-content-answer">
-      <div id="tries"></div>
-    </div>
-    <div class="page-content-answer">
       <div id="hint"></div>
-    </div>
-    <div class="page-content-current-score">
-      <div id="currentScore"></div>
-    </div>
-    <div class="page-content-high-score">
-      <div id="highScore"></div>
     </div>
     <div class="page-content-answer">
       <div id="answer"></div>
+      <div id="image"></div>
     </div>
   </div>
   </body>

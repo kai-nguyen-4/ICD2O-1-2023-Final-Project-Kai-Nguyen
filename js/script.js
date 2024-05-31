@@ -23,14 +23,10 @@ function updateScore() {
   // save to local storage
   console.log(highScore)
   if (localStorage.highScore) {
-    highScore = Number(localStorage.highScore)
+    highScore = localStorage.highScore
   } else {
     localStorage.highScore = highScore
   }
-  document.getElementById("highScore").innerHTML = "High Score: " + highScore
-}
-
-window.onload = function() {
   document.getElementById("highScore").innerHTML = "High Score: " + highScore
   document.getElementById("currentScore").innerHTML = "Score: " + score
 }

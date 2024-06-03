@@ -8,11 +8,11 @@
 /**
  * Check service worker.
  */
-/*if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-Unit-6-04-kai-nguyen-4/sw.js", {
-    scope: "/ICS2O-Unit-6-04-kai-nguyen-4/",
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("/ICD2O-1-2023-Final-Project-Kai-Nguyen/sw.js", {
+    scope: "/ICD2O-1-2023-Final-Project-Kai-Nguyen/",
   })
-}*/
+}
 
 let score = 0
 let highScore = 0
@@ -23,14 +23,10 @@ function updateScore() {
   // save to local storage
   console.log(highScore)
   if (localStorage.highScore) {
-    highScore = Number(localStorage.highScore)
+    highScore = localStorage.highScore
   } else {
-    localStorage.highScore = highScore
+    localStorage.setItem(highScore)
   }
-  document.getElementById("highScore").innerHTML = "High Score: " + highScore
-}
-
-window.onload = function() {
   document.getElementById("highScore").innerHTML = "High Score: " + highScore
   document.getElementById("currentScore").innerHTML = "Score: " + score
 }
@@ -50,12 +46,16 @@ function buttonClicked() {
         console.log(score)
         console.log(highScore)
       }
+      document.getElementById("highScore").innerHTML = "High Score: " + highScore
+      document.getElementById("currentScore").innerHTML = "Score: " + score
       hiddenNumber = Math.floor(Math.random() * 100) + 1
     } else if (userNumber > hiddenNumber) {
-      document.getElementById("hint").innerHTML = "Incorrect, the number is lower."
+      document.getElementById("hint").innerHTML = "Incorrect, the number is lower.<br /><br />"
+      document.getElementById("image").innerHTML = "Question " + score + " correct!<br />"
       tries--
     } else if (userNumber < hiddenNumber) {
-      document.getElementById("hint").innerHTML = "Incorrect, the number is higher."
+      document.getElementById("hint").innerHTML = "Incorrect, the number is higher.<br /><br />"
+      document.getElementById("image").innerHTML = 
       tries--
     }
     if (tries == 0) {

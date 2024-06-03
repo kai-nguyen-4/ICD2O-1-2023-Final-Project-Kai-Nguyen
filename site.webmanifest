@@ -2,8 +2,8 @@
   "name": "Kai Nguyen's App",
   "short_name": "Kai Nguyen's App",
   "description": "Github page for Kai Nguyen's App",
-  "scope": "/ICD2O-Unit-6-01-kai-nguyen-4/",
-  "start_url": "/ICD2O-Unit-6-01-kai-nguyen-4/",
+  "scope": "/ICD2O-1-2023-Final-Project-Kai-Nguyen/",
+  "start_url": "/ICD2O-1-2023-Final-Project-Kai-Nguyen/",
   "permissions": [ 
     "unlimitedStorage",
     "fullscreen"

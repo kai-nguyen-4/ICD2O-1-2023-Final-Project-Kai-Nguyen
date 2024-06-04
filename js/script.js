@@ -51,11 +51,11 @@ function buttonClicked() {
       hiddenNumber = Math.floor(Math.random() * 100) + 1
     } else if (userNumber > hiddenNumber) {
       document.getElementById("hint").innerHTML = "Incorrect, the number is lower.<br /><br />"
-      document.getElementById("image").innerHTML = "Question " + score + " correct!<br />"
+      /* document.getElementById("image").innerHTML = "Question " + score + " correct!<br />" */
       tries--
     } else if (userNumber < hiddenNumber) {
       document.getElementById("hint").innerHTML = "Incorrect, the number is higher.<br /><br />"
-      document.getElementById("image").innerHTML = 
+      /* document.getElementById("image").innerHTML = sadface */
       tries--
     }
     if (tries == 0) {

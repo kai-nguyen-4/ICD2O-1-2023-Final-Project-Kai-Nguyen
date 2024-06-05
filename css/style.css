@@ -55,6 +55,13 @@
     margin-left: 50%;
   } 
 
+  .page-content-hint {
+    color: rgb(255 0 0);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.9rem;
+    margin-left: 50%;
+  }   
+
   .textbox {
     border-color: black;
     background-color: white;
@@ -65,6 +72,10 @@
     margin: auto;
     margin-top: 5%;
     font-size: 1.5rem;
+  }
+
+  .reloadButton {
+    button.link { background:none; border:none; }
   }
 
   body {

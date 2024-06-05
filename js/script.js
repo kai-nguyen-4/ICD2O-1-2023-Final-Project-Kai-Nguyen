@@ -14,10 +14,15 @@ if (navigator.serviceWorker) {
   })
 }
 
+
 let score = 0
 let highScore = 0
 let hiddenNumber = Math.floor(Math.random() * 100) + 1
 let tries = 7
+
+// images
+let happyFace = '<img src="./images/happy-emoji.svg" alt="happy face">'
+let sadFace = '<img src="./images/sad-emoji.svg" alt="sad face">'
 
 function updateScore() {
   // save to local storage
@@ -39,6 +44,7 @@ function buttonClicked() {
     if (userNumber == hiddenNumber) {
       score++
       document.getElementById("answer").innerHTML += "Question " + score + " correct!<br />"
+      document.getElementById("image").innerHTML = happyFace
       tries = 7
       if (score > highScore) {
         highScore = score
@@ -51,18 +57,22 @@ function buttonClicked() {
       hiddenNumber = Math.floor(Math.random() * 100) + 1
     } else if (userNumber > hiddenNumber) {
       document.getElementById("hint").innerHTML = "Incorrect, the number is lower.<br /><br />"
-      /* document.getElementById("image").innerHTML = "Question " + score + " correct!<br />" */
+      document.getElementById("image").innerHTML = sadFace
       tries--
     } else if (userNumber < hiddenNumber) {
       document.getElementById("hint").innerHTML = "Incorrect, the number is higher.<br /><br />"
-      /* document.getElementById("image").innerHTML = sadface */
+      document.getElementById("image").innerHTML = sadFace
       tries--
     }
     if (tries == 0) {
-      document.getElementById("answer").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score
+      document.getElementById("hint").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score + "<br />" + /*'<button class="reloadButton" onclick="reload()">' + "Click to play again</button>" */
+      /* document.getElementById("end").innerHTML = "Click to play again" */
+      function reload() {
+        location.reload()
+      }
     }
     document.getElementById("tries").innerHTML = "Tries remaining: " + tries
   } else {
-    document.getElementById("answer").innerHTML = "Error! Please enter a valid number from 1-100"
+    document.getElementById("hint").innerHTML = "Error! Please enter a valid number from 1-100"
   }
 }

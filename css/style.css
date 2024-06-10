@@ -2,9 +2,9 @@
 * Created on: May 2024
 * This file contains the CSS for index.html
 */
-.mdl-layout__header-row {
+  .mdl-layout__header-row {
     justify-content: center;
-    padding: 0;
+    padding: 0px;
   }
   
   .mdl-layout__content {

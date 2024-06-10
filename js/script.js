@@ -1,7 +1,7 @@
 // Copyright (c) 2024 Kai Nguyen All rights reserved
 //
 // Created by: Kai Nguyen
-// Created on: May 2024
+// Created on: june 2024
 // This file contains the JS functions for index.html
 "use strict"
 
@@ -14,6 +14,18 @@ if (navigator.serviceWorker) {
   })
 }
 
+function reveal() {
+  let visible = document.getElementById("end");
+  if (visible.style.display === "none") {
+    visible.style.display = "block";
+  } else {
+    visible.style.display = "none";
+  }
+}
+
+function reloadPage() {
+  location.reload()
+}
 
 let score = 0
 let highScore = 0
@@ -45,6 +57,7 @@ function buttonClicked() {
       score++
       document.getElementById("answer").innerHTML += "Question " + score + " correct!<br />"
       document.getElementById("image").innerHTML = happyFace
+      document.getElementById("hint").innerHTML = ""
       tries = 7
       if (score > highScore) {
         highScore = score
@@ -65,14 +78,12 @@ function buttonClicked() {
       tries--
     }
     if (tries == 0) {
-      document.getElementById("hint").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score + "<br />" + /*'<button class="reloadButton" onclick="reload()">' + "Click to play again</button>" */
-      /* document.getElementById("end").innerHTML = "Click to play again" */
-      function reload() {
-        location.reload()
-      }
+      reveal()
+      document.getElementById("hint").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score + "<br />"
     }
     document.getElementById("tries").innerHTML = "Tries remaining: " + tries
   } else {
     document.getElementById("hint").innerHTML = "Error! Please enter a valid number from 1-100"
   }
 }
+

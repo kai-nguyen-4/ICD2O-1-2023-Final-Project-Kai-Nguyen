@@ -14,6 +14,16 @@ if (navigator.serviceWorker) {
   })
 }
 
+/* console.log("hello, world")
+const powerUpImg = setInterval(createPowerUp, 20000)
+
+function createPowerUp() {
+  new powerUpImg(100, 200)
+  powerUpImg.src = "./images/lightningBolt.svg"
+  powerUpImg.style.y = Math.floor(Math.random() * 1080) + 1
+  powerUpImg.style.x = Math.floor(Math.random() * 1920) + 1 
+} */
+
 function reveal() {
   let visible = document.getElementById("end");
   if (visible.style.display === "none") {

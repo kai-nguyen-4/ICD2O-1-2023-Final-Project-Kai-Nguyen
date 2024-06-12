@@ -12,14 +12,12 @@ img {
   height: auto;
   width: 300px;
 }
-
 p {
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   padding-left: 25px; 
   font-size: large;
 }
-
 .page-content-current-score {
   color: black;
   font-family: Helvetica, Arial, sans-serif;
@@ -28,28 +26,24 @@ p {
   height: 30px;
   margin-left: 95.5%;
 }
-
 .page-content-high-score {
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   margin-left: 93%;
 } 
-
 .page-content-answer {
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   margin-left: 50%;
 } 
-
 .page-content-hint {
   color: red;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.9rem;
   margin-left: 50%;
 }   
-
 .textbox {
   border-color: black;
   background-color: white;
@@ -61,7 +55,6 @@ p {
   margin-top: 5%;
   font-size: 1.5rem;
 }
-
 button {
   background: none;
   border: none;
@@ -71,7 +64,6 @@ button {
   padding-top: 50px;
   padding-bottom: 50px;
 } 
-
 body {
   background-color: cornflowerblue;
 }

@@ -14,22 +14,38 @@ if (navigator.serviceWorker) {
   })
 }
 
-/* console.log("hello, world")
-const powerUpImg = setInterval(createPowerUp, 20000)
+const powerUpImgCon = document.getElementById("powerUpPlace")
+const myInterval = setInterval(createPowerUp, 2000)
 
 function createPowerUp() {
-  new powerUpImg(100, 200)
+  let powerUpImg = new Image()
   powerUpImg.src = "./images/lightningBolt.svg"
-  powerUpImg.style.y = Math.floor(Math.random() * 1080) + 1
-  powerUpImg.style.x = Math.floor(Math.random() * 1920) + 1 
-} */
+  powerUpImg.style.width = "50px"
+  powerUpImg.style.height = "100px"
+  powerUpImg.style.x = (Math.random() * (document.body.scrollWidth)).toFixed();
+  powerUpImg.style.y = (Math.random() * (document.body.scrollHeight - 200)).toFixed()
+  powerUpImg.style.position = "absolute"
+  powerUpImg.style.left = powerUpImg.style.x + 'px'
+  powerUpImg.style.top = powerUpImg.style.y + 'px'
+  powerUpImgCon.appendChild(powerUpImg).onclick = document.addEventListener("click", function() {
+    powerUpFunc()
+  }, {capture: true})
+  
+}
+
+function powerUpFunc() {
+  const powerUpAbilities = ["Half lives but reveals a digit", "+2 tries", "+1 try"]
+  let currentPowerUp = powerUpAbilities[Math.floor(Math.random() * powerUpAbilities.length)]
+  console.log(currentPowerUp)
+  document.getElementById("powerUpTxt").innerHTML = currentPowerUp
+}
 
 function reveal() {
-  let visible = document.getElementById("end");
+  let visible = document.getElementById("end")
   if (visible.style.display === "none") {
-    visible.style.display = "block";
+    visible.style.display = "block"
   } else {
-    visible.style.display = "none";
+    visible.style.display = "none"
   }
 }
 

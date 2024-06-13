@@ -27,17 +27,24 @@ function createPowerUp() {
   powerUpImg.style.position = "absolute"
   powerUpImg.style.left = powerUpImg.style.x + 'px'
   powerUpImg.style.top = powerUpImg.style.y + 'px'
-  powerUpImgCon.appendChild(powerUpImg).onclick = document.addEventListener("click", function() {
+  powerUpImgCon.appendChild(powerUpImg)
+  powerUpImg.addEventListener("click", function() {
     powerUpFunc()
+    powerUpImg.style.display = "none"
   }, {capture: true})
-  
 }
 
 function powerUpFunc() {
-  const powerUpAbilities = ["Half lives but reveals a digit", "+2 tries", "+1 try"]
+  const powerUpAbilities = ["Half tries but reveals a digit", "+2 tries", "+1 try", "-1 try", "-2 tries"]
   let currentPowerUp = powerUpAbilities[Math.floor(Math.random() * powerUpAbilities.length)]
   console.log(currentPowerUp)
   document.getElementById("powerUpTxt").innerHTML = currentPowerUp
+  if (currentPowerUp == powerUpAbilities[0]) {
+    tries = tries / 2
+    console.log(tries)
+    triesUpdate()
+    document.getElementById("hint").innerHTML = "the first digit of your number is..." + hintNum[0]
+  }
 }
 
 function reveal() {
@@ -55,9 +62,9 @@ function reloadPage() {
 
 let score = 0
 let highScore = 0
-let hiddenNumber = Math.floor(Math.random() * 100) + 1
-let tries = 7
-
+let hiddenNumber = Math.floor(Math.random() * 99) + 1
+let tries = 5
+let hintNum
 // images
 let happyFace = '<img src="./images/happy-emoji.svg" alt="happy face">'
 let sadFace = '<img src="./images/sad-emoji.svg" alt="sad face">'
@@ -75,16 +82,18 @@ function updateScore() {
 }
 
 function buttonClicked() {
+  hintNum = hiddenNumber.toString()
+  console.log(hintNum[0])
   const userNumber = parseInt(document.getElementById("number-entered").value)
   console.log(userNumber)
   console.log(hiddenNumber)
-  if ((userNumber >= 1) && (userNumber <= 100)) {
+  if ((userNumber >= 1) && (userNumber <= 99)) {
     if (userNumber == hiddenNumber) {
       score++
       document.getElementById("answer").innerHTML += "Question " + score + " correct!<br />"
       document.getElementById("image").innerHTML = happyFace
       document.getElementById("hint").innerHTML = ""
-      tries = 7
+      tries = 5
       if (score > highScore) {
         highScore = score
         localStorage.highScore = highScore
@@ -93,7 +102,7 @@ function buttonClicked() {
       }
       document.getElementById("highScore").innerHTML = "High Score: " + highScore
       document.getElementById("currentScore").innerHTML = "Score: " + score
-      hiddenNumber = Math.floor(Math.random() * 100) + 1
+      hiddenNumber = Math.floor(Math.random() * 99) + 1
     } else if (userNumber > hiddenNumber) {
       document.getElementById("hint").innerHTML = "Incorrect, the number is lower.<br /><br />"
       document.getElementById("image").innerHTML = sadFace
@@ -107,9 +116,12 @@ function buttonClicked() {
       reveal()
       document.getElementById("hint").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score + "<br />"
     }
-    document.getElementById("tries").innerHTML = "Tries remaining: " + tries
+    triesUpdate()
   } else {
     document.getElementById("hint").innerHTML = "Error! Please enter a valid number from 1-100"
   }
 }
 
+function triesUpdate() {
+  document.getElementById("tries").innerHTML = "Tries remaining: " + Math.round(tries)
+  }

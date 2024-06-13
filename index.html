@@ -17,18 +17,17 @@
     <title>Guess the number game</title>
     <link rel="canonical" href="https://mths-icd2o-1-2023.github.io/ICD2O-Unit-6-02-kai-nguyen-4" />
   </head>
-  <body onload="updateScore()">
+  <body id="powerUpPlace" onload="updateScore()">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="./js/script.js"></script>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">Guess the number from 1 - 100, with Js</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-        </div>
-      </header>
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Guess the number from 1 - 100, with Js</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+      </div>
+    </header>
     <div class="textbox">
       <div class="page-content-current-score">
         <div id="currentScore"></div>
@@ -42,19 +41,25 @@
     <p style="padding-left: 25px;">Try to guess the number!</p>
       <div>
       <input type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="number-entered" style="margin-left: 2%;"/>
-      <label for="num1-entered" > 1 => 100</label>
+      <label for="num1-entered"> 1 - 99</label>
       <span class="mdl-textfield__error">Input is not a number!</span>
       </div>
       <br />
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="margin-left: 2%;" onclick="buttonClicked()">
         Enter
       </button>
-    <div class="page-content-answer">
+    <div class="page-content-hint">
       <div id="hint"></div>
+      <button class="reloadButton" id="end" style="display: none;" onclick="reloadPage()"> 
+        Click to play again
+      </button>
     </div>
     <div class="page-content-answer">
       <div id="answer"></div>
       <div id="image"></div>
+    </div>
+    <div class="page-content-powerup">
+      <div id="powerUpTxt"></div>
     </div>
   </div>
   </body>

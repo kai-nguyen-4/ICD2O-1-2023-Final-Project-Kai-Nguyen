@@ -17,6 +17,19 @@ if (navigator.serviceWorker) {
 const powerUpImgCon = document.getElementById("powerUpPlace")
 const powerUpInterval = setInterval(createPowerUp, 20000)
 
+function updateScore() {
+  // save to local storage
+  console.log(highScore)
+  if (localStorage.highScore) {
+    highScore = localStorage.highScore
+  } else {
+    localStorage.setItem(highScore)
+  }
+  triesUpdate()
+  document.getElementById("highScore").innerHTML = "High Score: " + highScore
+  document.getElementById("currentScore").innerHTML = "Score: " + score
+}
+
 function createPowerUp() {
   let powerUpImg = new Image()
   powerUpImg.src = "./images/lightningBolt.svg"
@@ -35,8 +48,7 @@ function createPowerUp() {
 }
 
 function powerUpFunc() {
-  clearInterval(powerUpInterval)
-  const powerUpAbilities = ["Half tries but reveals a digit", "+2 tries", "+1 try", "-1 try", "-2 tries", "Unlimited tries but only 10 seconds "]
+  const powerUpAbilities = ["Half tries but reveals a digit", "+2 tries", "+1 try", "-1 try", "-2 tries", "Unlimited tries but only 10 seconds"]
   let currentPowerUp = powerUpAbilities[Math.floor(Math.random() * powerUpAbilities.length)]
   console.log(currentPowerUp)
   document.getElementById("powerUpTxt").innerHTML = currentPowerUp
@@ -58,21 +70,20 @@ function powerUpFunc() {
     tries = tries - 2
     triesUpdate()
   } else if (currentPowerUp == powerUpAbilities[5]) {
-      time = 10
-      timerLoop = setInterval(timer, 1000) 
-  }
-  function timer(){
-    if (time > 0) {
-      time--
-      document.getElementById("powerUpTxt").innerHTML = "Time Remaining: " + time
-      tries = 100
-      triesUpdate()
-    }
-    clearInterval(timerLoop)
-    if (time == 0) {
-      gameOver()
-    }
-  }
+      time = 20
+      timerLoop = setInterval( function() {
+        if (time > 0) {
+          console.log(time)
+          time--
+          document.getElementById("powerUpTxt").innerHTML = "Time Remaining: " + time
+          tries = 100
+          triesUpdate()
+        }
+        if (time == 0) {
+          gameOver()
+        }
+      }, 1000) 
+  } 
 }
 
 function reveal() {
@@ -88,6 +99,7 @@ function reloadPage() {
   location.reload()
 }
 
+let timerLoop
 let time
 let score = 0
 let highScore = 0
@@ -97,25 +109,16 @@ let hintNum
 // images
 let happyFace = '<img src="./images/happy-emoji.svg" alt="happy face">'
 let sadFace = '<img src="./images/sad-emoji.svg" alt="sad face">'
-let timerLoop
 
-
-function updateScore() {
-  // save to local storage
-  console.log(highScore)
-  if (localStorage.highScore) {
-    highScore = localStorage.highScore
-  } else {
-    localStorage.setItem(highScore)
-  }
-  triesUpdate()
-  document.getElementById("highScore").innerHTML = "High Score: " + highScore
-  document.getElementById("currentScore").innerHTML = "Score: " + score
+function gameOver() {
+  console.log("Game Over")
+  document.getElementById("hint").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score + "<br />"
+  reveal()
+  clearInterval(powerUpInterval)
+  clearInterval(timerLoop)
 }
 
 function buttonClicked() {
-  setInterval(powerUpFunc, 20000)
-  time = 10
   hintNum = hiddenNumber.toString()
   console.log(hintNum[0])
   const userNumber = parseInt(document.getElementById("number-entered").value)
@@ -147,7 +150,6 @@ function buttonClicked() {
       tries--
     }
     if (tries <= 0) {
-      reveal()
       gameOver()
     }
     triesUpdate()
@@ -160,9 +162,3 @@ function triesUpdate() {
   document.getElementById("tries").innerHTML = "Tries remaining: " + Math.round(tries)
   }
 
-function gameOver() {
-  document.getElementById("hint").innerHTML = "Game over! The number was: " + hiddenNumber + ". Your score is " + score + "<br />"
-  delete buttonClicked()
-  clearInterval(powerUpInterval)
-  clearInterval(timerLoop)
-}

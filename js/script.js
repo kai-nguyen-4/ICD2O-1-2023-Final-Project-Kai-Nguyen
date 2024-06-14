@@ -15,7 +15,7 @@ if (navigator.serviceWorker) {
 }
 
 const powerUpImgCon = document.getElementById("powerUpPlace")
-const powerUpInterval = setInterval(createPowerUp, 2000)
+const powerUpInterval = setInterval(createPowerUp, 20000)
 
 function updateScore() {
   // save to local storage
@@ -108,7 +108,7 @@ let tries = 5
 let hintNum
 // images
 let happyFace = '<img src="./images/happy-emoji.svg" alt="happy face">'
-let sadFace = '<img sr/images/sad-emoji.svg" alt="sad face">'
+let sadFace = '<img src="./images/sad-emoji.svg" alt="sad face">'
 
 function gameOver() {
   console.log("Game Over")

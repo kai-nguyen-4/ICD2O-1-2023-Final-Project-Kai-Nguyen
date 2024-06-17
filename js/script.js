@@ -41,6 +41,9 @@ function createPowerUp() {
   powerUpImg.style.left = powerUpImg.style.x + 'px'
   powerUpImg.style.top = powerUpImg.style.y + 'px'
   powerUpImgCon.appendChild(powerUpImg)
+  setTimeout(() => {
+    powerUpImg.style.display = "none"
+  }, 5000)
   powerUpImg.addEventListener("click", function() {
     powerUpFunc()
     powerUpImg.style.display = "none"

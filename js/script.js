@@ -56,7 +56,11 @@ function powerUpFunc() {
     tries = tries / 2 + 0.1
     console.log(tries)
     triesUpdate()
-    document.getElementById("hint").innerHTML = "the first digit of your number is..." + hintNum[0]
+    if (hintNum[1] == null) {
+      document.getElementById("hint").innerHTML = "the first digit of your number is... 0"
+    } else {
+      document.getElementById("hint").innerHTML = "the first digit of your number is... " + hintNum[0]
+    }
   } else if (currentPowerUp == powerUpAbilities[1]) {
     tries = tries + 2
     triesUpdate()
@@ -126,11 +130,13 @@ function buttonClicked() {
   console.log(hiddenNumber)
   if ((userNumber >= 1) && (userNumber <= 99)) {
     if (userNumber == hiddenNumber) {
+      clearInterval(timerLoop)
       score++
       document.getElementById("answer").innerHTML += "Question " + score + " correct!<br />"
       document.getElementById("image").innerHTML = happyFace
       document.getElementById("hint").innerHTML = ""
       tries = 5
+      triesUpdate()
       if (score > highScore) {
         highScore = score
         localStorage.highScore = highScore
@@ -149,9 +155,6 @@ function buttonClicked() {
       document.getElementById("image").innerHTML = sadFace
       tries--
     }
-    if (tries <= 0) {
-      gameOver()
-    }
     triesUpdate()
   } else {
     document.getElementById("hint").innerHTML = "Error! Please enter a valid number from 1-100"
@@ -160,5 +163,8 @@ function buttonClicked() {
 
 function triesUpdate() {
   document.getElementById("tries").innerHTML = "Tries remaining: " + Math.round(tries)
+  if (tries <= 0) {
+    gameOver()
   }
+}
 

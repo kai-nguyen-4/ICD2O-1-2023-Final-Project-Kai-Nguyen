@@ -51,6 +51,7 @@ p {
 }
 
 .page-content-powerup {
+  position: absolute;
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25rem;

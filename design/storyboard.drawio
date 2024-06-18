@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="gni3grZpdL3Po6InL1X9" name="Page-1">
+        <mxGraphModel dx="1086" dy="692" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="http://ics2o.mths.ca" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="60" width="760" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="20" y="100" width="670" height="305" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;&lt;b&gt;Guess the number with JS&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3" vertex="1">
+                    <mxGeometry x="45" y="50" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Enter a Number&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=30;" parent="3" vertex="1">
+                    <mxGeometry x="35" y="110" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Your score: 3" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;" parent="3" vertex="1">
+                    <mxGeometry x="640" y="40" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="69" style="rounded=1;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="45" y="170" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Tries remaining: 6" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3" vertex="1">
+                    <mxGeometry x="335" y="120" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="The first digit of your number is... 7" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry x="355" y="190" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Halves your lives but reveals a digit of your number" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry x="90" y="350" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.flash;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="3">
+                    <mxGeometry x="250" y="180" width="30" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
